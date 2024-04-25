@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 25,
+            "activePatchIndex": 53,
             "patches": [
                 {
                     "date": 1713967407611,
@@ -108,6 +108,118 @@
                 {
                     "date": 1713967673270,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n };\n \n export const getRedGoods = () => {\n   return getAll().then(goods => {\n-    return goods.filter(good.color === 'red')\n+    return goods.filter(goodgood.color === 'red')\n   }); // get only red\n };\n"
+                },
+                {
+                    "date": 1714026670524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL = `https://mate-academy.github.io/react_dynamic-list-of-goods/goods.json`;\n+const API_URL = `https://m`;\n \n export function getAll(): Promise<Good[]> {\n   return fetch(API_URL).then(response => response.json());\n }\n@@ -14,7 +14,7 @@\n };\n \n export const getRedGoods = () => {\n   return getAll().then(goods => {\n-    return goods.filter(goodgood.color === 'red')\n+    return goods.filter(good => good.color === 'red');\n   }); // get only red\n };\n"
+                },
+                {
+                    "date": 1714026676641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL = `https://m`;\n+const API_URL = `https://localhost `;\n \n export function getAll(): Promise<Good[]> {\n   return fetch(API_URL).then(response => response.json());\n }\n"
+                },
+                {
+                    "date": 1714026683030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL = `https://localhost `;\n+const API_URL = `https://localhost: 5000?`;\n \n export function getAll(): Promise<Good[]> {\n   return fetch(API_URL).then(response => response.json());\n }\n"
+                },
+                {
+                    "date": 1714026693165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL = `https://localhost: 5000?`;\n+const API_URL = `https://localhost: 5000/colors`;\n+const API_URL = `https://localhost: 5000/colors`;\n \n export function getAll(): Promise<Good[]> {\n   return fetch(API_URL).then(response => response.json());\n }\n"
+                },
+                {
+                    "date": 1714026704719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL = `https://localhost: 5000/colors`;\n-const API_URL = `https://localhost: 5000/colors`;\n+const API_URL_ = `https://localhost: 5000/colors`;\n+const API_URL = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return fetch(API_URL).then(response => response.json());\n }\n"
+                },
+                {
+                    "date": 1714026712064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL_ = `https://localhost: 5000/colors`;\n-const API_URL = `https://localhost: 5000/goods`;\n+const API_URL_COLORS = `https://localhost: 5000/colors`;\n+const API_URL_ = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return fetch(API_URL).then(response => response.json());\n }\n"
+                },
+                {
+                    "date": 1714026770267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n-const API_URL_ = `https://localhost: 5000/goods`;\n+const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return fetch(API_URL).then(response => response.json());\n+  return Promise\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026775983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return Promise\n+  return Promise.all()\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026781224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,11 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return Promise.all()\n+  return Promise.all(\n+    \n+  )\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026786304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return Promise.all(\n-    \n+    fetch\n   )\n }\n \n export const get5First = () => {\n"
+                },
+                {
+                    "date": 1714026795055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return Promise.all(\n-    fetch\n+    fetch(API_URL_COLORS)\n   )\n }\n \n export const get5First = () => {\n"
+                },
+                {
+                    "date": 1714026804089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return Promise.all(\n-    fetch(API_URL_COLORS)\n+    fetch(API_URL_COLORS), \n   )\n }\n \n export const get5First = () => {\n"
+                },
+                {
+                    "date": 1714026812496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return Promise.all(\n-    fetch(API_URL_COLORS), \n+    fetch(API_URL_COLORS), API_URL_GOODS)\n   )\n }\n \n export const get5First = () => {\n"
+                },
+                {
+                    "date": 1714026818108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n   return Promise.all(\n-    fetch(API_URL_COLORS), API_URL_GOODS)\n+    fetch(API_URL_COLORS), FETCH(API_URL_GOODS)\n   )\n }\n \n export const get5First = () => {\n"
+                },
+                {
+                    "date": 1714026825520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return Promise.all(\n-    fetch(API_URL_COLORS), FETCH(API_URL_GOODS)\n-  )\n+  return Promise.all(fetch(API_URL_COLORS), FETCH(API_URL_GOODS));\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026831502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return Promise.all(fetch(API_URL_COLORS), FETCH(API_URL_GOODS));\n+  return Promise.all(fetch(API_URL_COLORS), fetch(API_URL_GOODS));\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026860873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return Promise.all(fetch(API_URL_COLORS), fetch(API_URL_GOODS));\n+  return Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS));\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026889507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  return Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS));\n+  rturn Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]);\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026895070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  rturn Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]);\n+ Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]);\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026900269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n- Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]);\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]);\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026907249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]);\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026913615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data = )\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026919320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data = )\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data => console.log)\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026929413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,11 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data => console.log)\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n+    console.log(data),\n+  );\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
+                },
+                {
+                    "date": 1714026937528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then((data =>\n     console.log(data),\n   );\n }\n \n"
+                },
+                {
+                    "date": 1714026945278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then((data =>\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n     console.log(data),\n   );\n }\n \n"
+                },
+                {
+                    "date": 1714027006706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n const API_URL_COLORS = `https://localhost: 5000/colors`;\n const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-    console.log(data),\n+  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then((data =>\n+    console.log(data)),\n   );\n }\n \n export const get5First = () => {\n"
+                },
+                {
+                    "date": 1714027011809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,11 @@\n import { Good } from '../types/Good';\n \n // eslint-disable-next-line\n-const API_URL_COLORS = `https://localhost: 5000/colors`;\n-const API_URL_GOODS = `https://localhost: 5000/goods`;\n+const API_URL = `https://localhost:`;\n \n export function getAll(): Promise<Good[]> {\n-  Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then((data =>\n-    console.log(data)),\n-  );\n+  return fetch(API_URL).then(response => response.json());\n }\n \n export const get5First = () => {\n   return getAll().then(goods => {\n"
                 }
             ],
             "date": 1713967407611,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 82,
+            "activePatchIndex": 157,
             "patches": [
                 {
                     "date": 1713967354992,
@@ -336,6 +336,306 @@
                 {
                     "date": 1713969126983,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n export const App: React.FC = () => {\n   const [goods, setGoods] = useState<Good[]>([]);\n \n-  const loadAll = asyn() => {\n+  const loadAll = () => {\n     getAll().then(setGoods);\n   };\n \n   const load5First = () => {\n"
+                },
+                {
+                    "date": 1714027035282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,10 @@\n   const loadRedGoods = () => {\n     getRedGoods().then(setGoods);\n   };\n \n+  \n+\n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n \n"
+                },
+                {
+                    "date": 1714027052351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, { useState } from 'react';\n+import React, { useEffect, useState } from 'react';\n import './App.scss';\n import { GoodsList } from './GoodsList';\n \n import { getAll, get5First, getRedGoods } from './api/goods';\n@@ -21,9 +21,9 @@\n   const loadRedGoods = () => {\n     getRedGoods().then(setGoods);\n   };\n \n-  \n+  useEffect;\n \n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n"
+                },
+                {
+                    "date": 1714027057583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   const loadRedGoods = () => {\n     getRedGoods().then(setGoods);\n   };\n \n-  useEffect;\n+  useEffect(()=>)\n \n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n"
+                },
+                {
+                    "date": 1714027080115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,19 @@\n   const loadRedGoods = () => {\n     getRedGoods().then(setGoods);\n   };\n \n-  useEffect(()=>)\n+  useEffect(() => {\n+    const API_URL_COLORS = `https://localhost: 5000/colors`;\n+    const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n+    export function getAll(): Promise<Good[]> {\n+      Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n+        console.log(data),\n+      );\n+    }\n+  });\n+\n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n \n"
+                },
+                {
+                    "date": 1714027085877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n-    export function getAll(): Promise<Good[]> {\n+     function getAll(): Promise<Good[]> {\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n         console.log(data),\n       );\n     }\n"
+                },
+                {
+                    "date": 1714027110915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n-     function getAll(): Promise<Good[]> {\n+    function getAll() {\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n         console.log(data),\n       );\n     }\n"
+                },
+                {
+                    "date": 1714027128151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,8 @@\n \n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n-\n-    function getAll() {\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n         console.log(data),\n       );\n     }\n"
+                },
+                {
+                    "date": 1714027153513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,12 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        console.log(data),\n+        data,\n       );\n     }\n-  });\n+  };\n \n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n"
+                },
+                {
+                    "date": 1714027159090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        data,\n+        data.map(item => ),\n       );\n     }\n   };\n \n"
+                },
+                {
+                    "date": 1714027166646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        data.map(item => ),\n+        data.map(item => item.json()),\n       );\n     }\n   };\n \n"
+                },
+                {
+                    "date": 1714027174184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        data.map(item => item.json()),\n+        data.map(item => item.json())),\n       );\n     }\n   };\n \n"
+                },
+                {
+                    "date": 1714027180676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        data.map(item => item.json())),\n+        data.map(item => item.json())).,\n       );\n     }\n   };\n \n"
+                },
+                {
+                    "date": 1714027186264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        data.map(item => item.json())).,\n+        data.map(item => item.json())).then\n       );\n     }\n   };\n \n"
+                },
+                {
+                    "date": 1714027196307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,11 +27,9 @@\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n       Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n         data.map(item => item.json())).then\n       );\n-    }\n-  };\n-\n+  \n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n \n"
+                },
+                {
+                    "date": 1714027201890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,12 +24,12 @@\n \n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n-      Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-        data.map(item => item.json())).then\n-      );\n-  \n+    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n+      data.map(item => item.json())).then\n+  });\n+\n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n \n"
+                },
+                {
+                    "date": 1714027227344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,11 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n-      data.map(item => item.json())).then\n-  });\n+      data.map(item => item.json()),\n+    ).then;\n+  }, []);\n \n   return (\n     <div className=\"App\">\n       <h1>Dynamic list of Goods</h1>\n"
+                },
+                {
+                    "date": 1714027242770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n \n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n-    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)]).then(data =>\n+    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n+      .then(data =>\n       data.map(item => item.json()),\n     ).then;\n   }, []);\n \n"
+                },
+                {
+                    "date": 1714027253561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,9 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n-      .then(data =>\n-      data.map(item => item.json()),\n+      .then(data => data.map(item => item.json())\n     ).then;\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027267217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,10 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n-      .then(data => data.map(item => item.json())\n-    ).then;\n+      .then(data => data.map(item => item.json()))\n+      .then;\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027273136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n-      .then;\n+      .then();\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027278450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n-      .then();\n+      .then(data => console.lo);\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027289966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,12 @@\n \n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n+    \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n-      .then(data => console.lo);\n+      .then(data => console.log(data));\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027297481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,12 @@\n \n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n-    \n+\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n+      // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027387972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,10 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n-    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n+    Promise.all([\n+      fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n   }, []);\n"
+                },
+                {
+                    "date": 1714027393310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n     Promise.all([\n-      fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n+      fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n+    ])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n   }, []);\n"
+                },
+                {
+                    "date": 1714027456589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,11 @@\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n     Promise.all([\n       fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n-    ])\n-      .then(data => data.map(item => item.json()))\n+    ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => console.log(data));\n+      .then(data => data);\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027462763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Promise.all([\n       fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => data);\n+      .then(data => data[1].map());\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027468225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Promise.all([\n       fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => data[1].map());\n+      .then(data => data[1].map(item => ));\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027475150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Promise.all([\n       fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => data[1].map(item => ));\n+      .then(data => data[1].map(item => ({})));\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027481052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,11 @@\n     Promise.all([\n       fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => data[1].map(item => ({})));\n+      .then(data => data[1].map(item => ({\n+        ...item\n+      })));\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027486782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,10 @@\n       fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n-        ...item\n+        ...item,\n+        color: \n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027493065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: \n+        color: data[0]\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027499930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0]\n+        color: data[0].\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027505744,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].\n+        color: data[0].find(id => )\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027511631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(id => )\n+        color: data[0].find( => )\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027519861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find( => )\n+        color: data[0].find(color. => )\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027525823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(color. => )\n+        color: data[0].find(color.id => item)\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027534914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(color.id => item)\n+        color: data[0].find(color.id => ClipboardItem.)\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027540174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(color.id => ClipboardItem.)\n+        color: data[0].find(color.id => item)\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027559467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(color.id => item)\n+        color: data[0].find(color => item)\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027565449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(color => item)\n+        color: data[0].find(color => )\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027572033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     ]).then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => data[1].map(item => ({\n         ...item,\n-        color: data[0].find(color => )\n+        color: data[0].find(color => colorId === ite)\n       })));\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027581048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,16 +25,17 @@\n   useEffect(() => {\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n-    Promise.all([\n-      fetch(API_URL_COLORS), fetch(API_URL_GOODS)\n-    ]).then(data => data.map(item => item.json()))\n+    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n+      .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => data[1].map(item => ({\n-        ...item,\n-        color: data[0].find(color => colorId === ite)\n-      })));\n+      .then(data =>\n+        data[1].map(item => ({\n+          ...item,\n+          color: data[0].find(color => colorId === item.colorId),\n+        })),\n+      );\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027586819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find(color => colorId === item.colorId),\n+          color: data[0]?.find(color => colorId === item.colorId),\n         })),\n       );\n   }, []);\n \n"
+                },
+                {
+                    "date": 1714027593795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0]?.find(color => colorId === item.colorId),\n+          color: data[0].find(color => colorId === item.colord),\n         })),\n       );\n   }, []);\n \n"
+                },
+                {
+                    "date": 1714027634478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,10 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find(color => colorId === item.colord),\n-        })),\n+          color: data[0].find(color => color.id === item.colord),\n+        }))\n       );\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1714027640688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,9 @@\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord),\n-        }))\n-      );\n+        })),);\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027692745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,10 +31,11 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find(color => color.id === item.colord),\n-        })),);\n+          color: data[0].find(color => color.id === item.colord)\n+        })),\n+      );\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027700273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,9 @@\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)\n-        })),\n-      );\n+        })));\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027706722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)\n-        })));\n+        }))).\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027712872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)\n-        }))).\n+        }))).then(data => )\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027718304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)\n-        }))).then(data => )\n+        }))).then(data => console.log(data))\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027726395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,11 @@\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)\n-        }))).then(data => console.log(data))\n+        })),\n+      )\n+      .then(data => console.log(data));\n   }, []);\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1714027734611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find(color => color.id === item.colord)\n+          color: data[0].find(color => color.id === item.colord),\n         })),\n       )\n       .then(data => console.log(data));\n   }, []);\n"
+                },
+                {
+                    "date": 1714027758190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data =>\n-        data[1].map(item => ({\n+        data[1]?.map(item => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord),\n         })),\n       )\n"
+                },
+                {
+                    "date": 1714027769357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,61 @@\n+import React, { useEffect, useState } from 'react';\n+import './App.scss';\n+import { GoodsList } from './GoodsList';\n+\n+import { getAll, get5First, getRedGoods } from './api/goods';\n+import { Good } from './types/Good';\n+// or\n+// import * as goodsAPI from './api/goods';\n+\n+export const App: React.FC = () => {\n+  const [goods, setGoods] = useState<Good[]>([]);\n+\n+  const loadAll = () => {\n+    getAll().then(setGoods);\n+  };\n+\n+  const load5First = () => {\n+    get5First().then(setGoods);\n+  };\n+\n+  const loadRedGoods = () => {\n+    getRedGoods().then(setGoods);\n+  };\n+\n+  useEffect(() => {\n+    const API_URL_COLORS = `https://localhost: 5000/colors`;\n+    const API_URL_GOODS = `https://localhost: 5000/goods`;\n+\n+    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n+      .then(data => data.map(item => item.json()))\n+      // eslint-disable-next-line no-console\n+      .then(data =>\n+        data[1]?.map(item => ({\n+          ...item,\n+          color: data[0]?.find(color => color.id === item.colord),\n+        })),\n+      )\n+      // eslint-disable-next-line no-console\n+      .then(data => console.log(data));\n+  }, []);\n+\n+  return (\n+    <div className=\"App\">\n+      <h1>Dynamic list of Goods</h1>\n+\n+      <button type=\"button\" data-cy=\"all-button\" onClick={loadAll}>\n+        Load all goods\n+      </button>\n+\n+      <button type=\"button\" data-cy=\"first-five-button\" onClick={load5First}>\n+        Load 5 first goods\n+      </button>\n+\n+      <button type=\"button\" data-cy=\"red-button\" onClick={loadRedGoods}>\n+        Load red goods\n+      </button>\n+\n+      <GoodsList goods={goods} />\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1714027785922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,11 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data =>\n-        data[1]?.map(item => ({\n+        data[1].map(item => ({\n           ...item,\n-          color: data[0]?.find(color => color.id === item.colord),\n+          color: data[0].find(color: => color.id === item.colord),\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n@@ -58,64 +58,4 @@\n       <GoodsList goods={goods} />\n     </div>\n   );\n };\n-import React, { useEffect, useState } from 'react';\n-import './App.scss';\n-import { GoodsList } from './GoodsList';\n-\n-import { getAll, get5First, getRedGoods } from './api/goods';\n-import { Good } from './types/Good';\n-// or\n-// import * as goodsAPI from './api/goods';\n-\n-export const App: React.FC = () => {\n-  const [goods, setGoods] = useState<Good[]>([]);\n-\n-  const loadAll = () => {\n-    getAll().then(setGoods);\n-  };\n-\n-  const load5First = () => {\n-    get5First().then(setGoods);\n-  };\n-\n-  const loadRedGoods = () => {\n-    getRedGoods().then(setGoods);\n-  };\n-\n-  useEffect(() => {\n-    const API_URL_COLORS = `https://localhost: 5000/colors`;\n-    const API_URL_GOODS = `https://localhost: 5000/goods`;\n-\n-    Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n-      .then(data => data.map(item => item.json()))\n-      // eslint-disable-next-line no-console\n-      .then(data =>\n-        data[1]?.map(item => ({\n-          ...item,\n-          color: data[0].find(color => color.id === item.colord),\n-        })),\n-      )\n-      .then(data => console.log(data));\n-  }, []);\n-\n-  return (\n-    <div className=\"App\">\n-      <h1>Dynamic list of Goods</h1>\n-\n-      <button type=\"button\" data-cy=\"all-button\" onClick={loadAll}>\n-        Load all goods\n-      </button>\n-\n-      <button type=\"button\" data-cy=\"first-five-button\" onClick={load5First}>\n-        Load 5 first goods\n-      </button>\n-\n-      <button type=\"button\" data-cy=\"red-button\" onClick={loadRedGoods}>\n-        Load red goods\n-      </button>\n-\n-      <GoodsList goods={goods} />\n-    </div>\n-  );\n-};\n"
+                },
+                {
+                    "date": 1714027793747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find(color: => color.id === item.colord),\n+          color: data[0].find((color: string) => color.id === item.colord),\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027801514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find((color: string) => color.id === item.colord),\n+          color: data[0].find((color: string[]) => color.id === item.colord),\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027808111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find((color: string[]) => color.id === item.colord),\n+          color: data[0].find((color: []) => color.id === item.colord),\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027817693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find((color: []) => color.id === item.colord),\n+          color: data[0].find((color) => color.id === item.colord),\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027847570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data =>\n+      .then(data => \n         data[1].map(item => ({\n           ...item,\n           color: data[0].find((color) => color.id === item.colord),\n         })),\n"
+                },
+                {
+                    "date": 1714027856716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => \n+      .then(data => Promise.all()\n         data[1].map(item => ({\n           ...item,\n           color: data[0].find((color) => color.id === item.colord),\n         })),\n"
+                },
+                {
+                    "date": 1714027892432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,13 +29,9 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data => Promise.all()\n-        data[1].map(item => ({\n-          ...item,\n-          color: data[0].find((color) => color.id === item.colord),\n-        })),\n-      )\n+   \n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n   }, []);\n \n"
+                },
+                {
+                    "date": 1714027898864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,14 @@\n \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => Promise.all()\n-   \n+      .then(data => Promise.all(     data[1].map(item => ({\n+          ...item,\n+          color: data[0].find((color) => color.id === item.colord),\n+        })),\n+      ))\n+\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n   }, []);\n \n"
+                },
+                {
+                    "date": 1714027914043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,14 +28,14 @@\n \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => data.map(item => item.json()))\n       // eslint-disable-next-line no-console\n-      .then(data => Promise.all(     data[1].map(item => ({\n+      .then(data =>\n+        data[1].map(item => ({\n           ...item,\n-          color: data[0].find((color) => color.id === item.colord),\n+          color: data[0].find((color: string) => color.id === item.colord),\n         })),\n-      ))\n-\n+      )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n   }, []);\n \n"
+                },
+                {
+                    "date": 1714027924025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,14 @@\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n-      .then(data => data.map(item => item.json()))\n+      .then(data => Promise.alldata.map(item => item.json()))\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find((color: string) => color.id === item.colord),\n+          color: data[0].find(color => color.id === item.colord),\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027942772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,14 @@\n     const API_URL_COLORS = `https://localhost: 5000/colors`;\n     const API_URL_GOODS = `https://localhost: 5000/goods`;\n \n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n-      .then(data => Promise.alldata.map(item => item.json()))\n+      .then(data => Promise.all(data.map(item => item.json())))\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map(item => ({\n           ...item,\n-          color: data[0].find(color => color.id === item.colord),\n+          color: data[0].find(color => color.id === item.colord)?.,\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027992634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,11 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => Promise.all(data.map(item => item.json())))\n       // eslint-disable-next-line no-console\n       .then(data =>\n-        data[1].map(item => ({\n+        data[1].map(item: item => ({\n           ...item,\n-          color: data[0].find(color => color.id === item.colord)?.,\n+          color: data[0].find(color => color.id === item.colord)?.name,\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714027998038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => Promise.all(data.map(item => item.json())))\n       // eslint-disable-next-line no-console\n       .then(data =>\n-        data[1].map(item: item => ({\n+        data[1].map(item: item[]) => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)?.name,\n         })),\n       )\n"
+                },
+                {
+                    "date": 1714028010323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => Promise.all(data.map(item => item.json())))\n       // eslint-disable-next-line no-console\n       .then(data =>\n-        data[1].map(item: item[]) => ({\n+        data[1].map((item: D[]) => ({\n           ...item,\n           color: data[0].find(color => color.id === item.colord)?.name,\n         })),\n       )\n"
+                },
+                {
+                    "date": 1714028020276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,11 @@\n     Promise.all([fetch(API_URL_COLORS), fetch(API_URL_GOODS)])\n       .then(data => Promise.all(data.map(item => item.json())))\n       // eslint-disable-next-line no-console\n       .then(data =>\n-        data[1].map((item: D[]) => ({\n+        data[1].map((item: Good[]) => ({\n           ...item,\n-          color: data[0].find(color => color.id === item.colord)?.name,\n+          color: data[0].find(color:  => color.id === item.colord)?.name,\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714028028714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map((item: Good[]) => ({\n           ...item,\n-          color: data[0].find(color:  => color.id === item.colord)?.name,\n+          color: data[0].find((color: Good[]) => color.id === item.colord)?.name,\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714028038420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,10 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map((item: Good[]) => ({\n           ...item,\n-          color: data[0].find((color: Good[]) => color.id === item.colord)?.name,\n+          color: data[0].find((color: Good[]) => color.id === item.colord)\n+            ?.name,\n         })),\n       )\n       // eslint-disable-next-line no-console\n       .then(data => console.log(data));\n"
+                },
+                {
+                    "date": 1714028044098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n       // eslint-disable-next-line no-console\n       .then(data =>\n         data[1].map((item: Good[]) => ({\n           ...item,\n-          color: data[0].find((color: Good[]) => color.id === item.colord)\n+          color: data[0].find((color) => color.id === item.colord)\n             ?.name,\n         })),\n       )\n       // eslint-disable-next-line no-console\n"
                 }
             ],
             "date": 1713967354992,
